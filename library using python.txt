@@ -1,0 +1,64 @@
+class library:
+    def __init__(self,list,name):
+        self.booklist=list
+        self.name=name
+        self.lendDict={}
+    def displaybooks(self):
+        print("listof books")
+        for book in self.booklist:
+            print(book)
+    def lendBook(self,user,book):
+        if book not in self.lendDict.keys():
+            self.lendDict.update({book:user})
+            print("book database has updated")
+        else:
+            print(f"book is alrady now{self.lendDict[book]}")
+    def addbook(self,book):
+        self.booklist.append(book)
+        print("book is added to your list")
+
+    def returnbook(self,book):
+        self.lendDict.pop(book)
+
+if __name__ == '__main__':
+
+    nitin=library(["pythone","c++","java","mava"],"nitiniscoder")
+
+    while(True):
+          print(f"welcome to the{nitin.name} library,Enter your choise to continue")
+          print("1.Display book")
+          print("2.lend a book")
+          print("3.add a book")
+          print("4.return a book")
+          user_choice=int(input())
+
+          if user_choice==1:
+              nitin.displaybooks()
+
+          elif user_choice==2:
+              book=input("enter book name you want")
+              user=input("enter your name")
+              nitin.lendBook(user,book)
+          elif user_choice==3:
+              book=input("enter the name of book you want")
+              nitin.addbook(book)
+          elif user_choice==4:
+              book=input("enter book name you wnat to return")
+              nitin.returnbook(book)
+          else:
+              print("not a valid option")
+
+          print("press q to quit and c to continue")
+          user_choise2=" "
+          while(user_choise2!="c" and user_choise2!="q"):
+
+              user_choise2=input()
+              if user_choise2=="q":
+                  exit()
+              elif user_choise2=="c":
+                  continue
+              else:
+                  print("nooooob")
+
+
+
