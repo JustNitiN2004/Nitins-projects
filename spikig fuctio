@@ -1,0 +1,11 @@
+def speak(str):
+    from win32com.client import Dispatch
+    
+    speak=Dispatch("SAPI.Spvoice")
+    speak.Speak(str)
+
+if __name__=='__main__':
+    f=open("nitin.txt","r")
+    temp=f.read()
+
+    speak(temp)
